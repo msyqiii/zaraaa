@@ -134,7 +134,7 @@
 <body>
 
     <div class="container">
-        <!-- Foto Pacar (Ganti 'pacar.jpg' dengan foto kalian) -->
+        <!-- Foto Pacar -->
         <div class="photo-frame">
             <img src="https://cdn.phototourl.com/free/2026-06-06-e059cb1f-eb07-4be3-bfdb-230d819c19e2.jpg" alt="Foto Pacar" id="pacar-foto">
         </div>
@@ -152,60 +152,73 @@
 
         <!-- Surat Interaktif -->
         <div class="letter-box" onclick="bukaSurat()">
-            <h3 style="color: #ff6b81;">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
+            <h3 style="color: #ff6b81;" id="judul-surat">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
             <div id="pesan-rahasia" class="hidden-message">
                 <p>Haii Zaraaaaaa,</p><br>
                 <p>Selamat ulang tahun yaaa zaraaaaa! dahhh 21 tahunn jugaaa nihhhh. Di hari yang indah ini, akuu cuma mau bilang terima kasih sudah hadir dan mewarnai hari-harikuu. Aku bersyukur banget yangg akhirnyaa sekarangg bisa dipertemukann kembalii sama kamuu zaraaaaa. Kadang sampe sekarang akuu sendiri masih mikir sii, kenapaa bisaa ujung-ujungnyaa bisaa ketemuu samaa kamuu lagii yaaa zaraaaa?padahal duluu kekk akuu ngiranyaa setelahh kitaa dahh gadaaa hubungann apaa-apaa lagii yaaa yaudaaa akuu mikirrnya kitaa nggaa bakalann ketemuu dalam artian bisaa dekett lagii, bahkann sedeket sekarangg. Kadang sampee sekarangg punn akuuu masihh nggaa percayaa, akuuu masihh tidaa ekspek bisaa dekett samaa zaraaa lagii, dann yapp emangg sepertinyaa Tuhan sudah ngasihh akuu lampu hijau (maybe) yangg dimanaa emangg akuu yang ditakdirkan sama kamu zaraaaa (wkwkwkwkwkw akuuu lagii npd bangett nihh) dann yangg pastii tuhan jugaa tauu manaa yang terbaik bagi seorang hambanya hehehehehe dann mungkinn ituu jugaa yangg menjadikann zaraaaa jawabann darii semuaa do'a-do'a kuu yangg selamaa inii udahh akuu panjatkan ke Tuhan, anjayyy wkwkwkwkwkw.</p><br>
                 <p>Ohh iyaaaa sampee kelupaann zaraaaa gara-gara keasyikan ngetik, semogaa di usia zaraaaa yang baru ini yang semakin tuaa (wkwkwkwkwkwkw bercandaa, masih mudaa kokkk zaraaaa), zaraaaaa makin bahagiaa, sehat selaluu, dilancarkann rezekinyaa dann semuaa urusannyaa, dikuranginn cueknyaa apalagii kaloo pass badmood atauu marahh hehe (bolehh kokk badmood, marahh ke akuuu tapii akuu jangann dicuekinn yaaa🫶🏻), dan semuaa impiann zaraaaa satu per satu bisa tercapai dann yangg pastii bisaa membanggakann orang tuaa zaraaa nantinyaa, aamiin. Akuu akan selalu berusahaa ada di sini kokk buatt dukung zaraaaa, nemeninn zaraaaa, semuanyaa pokoknyaa buatt zaraaaaa kapann punn dann dimanaa punn zaraaaa membutuhkann kuuu. 💕</p><br>
                 <p>Maaf yaaaa zaraaaa mungkinn akuuu masihh belumm bisaa sepenuhnyaa ngertiin zaraaaa, akuu masihh belajarr jugaa buatt bisaa ngertiin zaraaa sepenuhnyaa. Dan akuuu mintaa maaff jugaa yaaa zaraaaa akuu kadangg masihh nggaa dengerinn zaraaaa, bukann nggaa dengerin zaraaa sii tapii belumm sepenuhnyaa jugaa ngelakuinn apaa yangg zaraaa suruhh kekk nguranginn vape, ngga tidurr malem-malem dann masihh banyakk lagii. </p><br>
                 <p>Terimakasihh banyakk yaaa zaraaaa, dengann hadirnyaa zaraaa di kehidupankuu, zaraaaa dahh banyakk bangett ngasihh perubahann ke kehidupankuu, zaraaaa sudaa bawaa motivasii dann semangatt jugaa buatt akuuu, zaraaa dahh bawaa banyakk kebahagiann jugaa yangg pastinyaa buatt akuuu, dann masihh banyakk lagii yangg lainnyaa. Terima kasihh banyakkk yaaa zaraaaa🫶🏻 </p><br>
-                <p><i>love,<br>UQII</i></p>
+                <p><i>With love,<br>UQII</i></p>
             </div>
         </div>
 
-        <!-- Tombol Musik (Opsional) -->
-        <!-- Ganti 'musik.mp3' dengan link lagu romantis kesukaan kalian -->
+        <!-- Tombol Musik -->
         <audio id="bg-music" src="https://preliminary-harlequin-i632odai.edgeone.app/ssstik.io_1780779742906.mp3" loop></audio>
         <button class="btn-music" onclick="putarMusik()">🎵 Putar Musik</button>
     </div>
 
     <script>
-        // 1. PENGATURAN TANGGAL ULANG TAHUN
-        // Ubah tanggal di bawah ini sesuai hari ultah pacarmu (Format: Tahun-Bulan-Tanggal Jam)
+        // Pengaturan Tanggal Ulang Tahun Zara
         const tanggalUltah = new Date("July 05, 2026 00:00:00").getTime();
 
         const hitungMundur = setInterval(function() {
             const sekarang = new Date().getTime();
-            const selisih = tanggalUltah - sekarang;
+            const selisih = tanggalUltah - broadband_check(sekarang);
+            
+            function broadband_check(val) { return val; }
 
             const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
             const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
             const detik = Math.floor((selisih % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerHTML = hari < 10 ? "0" + hari : hari;
-            document.getElementById("hours").innerHTML = jam < 10 ? "0" + jam : jam;
-            document.getElementById("minutes").innerHTML = menit < 10 ? "0" + menit : menit;
-            document.getElementById("seconds").innerHTML = detik < 10 ? "0" + detik : detik;
-
-            // Jika waktu countdown habis
-            if (selisih < 0) {
+            // Mencegah nilai minus jika waktu sudah lewat
+            if (selisih > 0) {
+                document.getElementById("days").innerHTML = hari < 10 ? "0" + hari : hari;
+                document.getElementById("hours").innerHTML = jam < 10 ? "0" + jam : jam;
+                document.getElementById("minutes").innerHTML = menit < 10 ? "0" + menit : menit;
+                document.getElementById("seconds").innerHTML = detik < 10 ? "0" + detik : detik;
+            } else {
                 clearInterval(hitungMundur);
-                document.querySelector(".countdown").innerHTML = "<h2 style='color:#ff6b81;'>🎉 HAPPY BIRTHDAY! 🎉</h2>";
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                document.querySelector(".countdown").innerHTML = "<h2 style='color:#ff6b81; margin: 15px 0;'>🎉 HAPPY BIRTHDAY ZARAAAAA! 🎉</h2>";
             }
         }, 1000);
 
-        // 2. FUNGSI BUKA SURAT
+        // FUNGSI BUKA SURAT (Dengan Proteksi Waktu)
         function bukaSurat() {
+            const sekarang = new Date().getTime();
             const pesan = document.getElementById("pesan-rahasia");
-            if (pesan.style.display === "block") {
-                pesan.style.display = "none";
+
+            // Mengecek apakah waktu sekarang sudah mencapai atau melewati waktu ultah
+            if (sekarang < tanggalUltah) {
+                // Jika BELUM hari-H, kunci suratnya dan beri tahu dia
+                alert("Eitss, belum hari ulang tahunmuu zaraaaaa! 😜 Suratnya masih dikunci yaa, tunggu sampai tanggal 5 Juli baru bisa dibuka! ❤️");
             } else {
-                pesan.style.display = "block";
+                // Jika SUDAH hari-H atau lewat, surat bisa dibuka tutup
+                if (pesan.style.display === "block") {
+                    pesan.style.display = "none";
+                } else {
+                    pesan.style.display = "block";
+                }
             }
         }
 
-        // 3. FUNGSI PUTAR MUSIK
+        // FUNGSI PUTAR MUSIK
         function putarMusik() {
             const musik = document.getElementById("bg-music");
             const tombol = document.querySelector(".btn-music");
