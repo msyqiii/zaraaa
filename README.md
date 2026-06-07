@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy Birthday My Fav Person! ❤️</title>
     <style>
         * {
@@ -10,6 +10,13 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            /* Mengunci layar agar tidak bisa goyang/geser ke kanan-kiri */
+            overflow-x: hidden; 
         }
 
         body {
@@ -20,18 +27,17 @@
             align-items: center;
             padding: 20px;
             min-height: 100vh;
-            overflow-x: hidden;
             position: relative;
         }
 
-        /* Animasi Hati Berterbangan */
+        /* Animasi Hati Berterbangan - Diperbaiki agar tidak merusak lebar layar */
         .heart {
             position: absolute;
             color: #ff6b81;
             font-size: 20px;
             animation: floatUp 6s linear infinite;
-            opacity: 0.7;
-            bottom: -20px;
+            opacity: 0.6;
+            bottom: -50px;
             z-index: 0;
             pointer-events: none;
         }
@@ -39,10 +45,10 @@
         @keyframes floatUp {
             0% {
                 transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0.8;
+                opacity: 0.7;
             }
             100% {
-                transform: translateY(-105vh) translateX(50px) rotate(360deg);
+                transform: translateY(-110vh) translateX(30px) rotate(360deg);
                 opacity: 0;
             }
         }
@@ -51,59 +57,63 @@
             max-width: 600px;
             width: 100%;
             background: rgba(255, 255, 255, 0.85);
-            padding: 30px;
+            padding: 25px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
             backdrop-filter: blur(10px);
-            margin-top: 20px;
-            z-index: 1; /* Supaya container di atas efek hati */
+            margin-top: 10px;
+            margin-bottom: 30px;
+            z-index: 2; /* Berada di atas efek hati */
+            position: relative;
         }
 
         h1 {
             color: #ff6b81;
             margin-bottom: 10px;
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         p.subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #777;
             margin-bottom: 20px;
-            min-height: 25px;
+            min-height: 45px;
+            line-height: 1.4;
         }
 
         /* Countdown Style */
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin: 25px 0;
+            gap: 10px;
+            margin: 20px 0;
         }
 
         .time-box {
             background: #ff6b81;
             color: white;
-            padding: 10px 15px;
+            padding: 8px 10px;
             border-radius: 10px;
             font-weight: bold;
-            min-width: 70px;
+            min-width: 65px;
+            font-size: 0.8rem;
             box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
         }
 
         .time-box span {
             display: block;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
         /* Foto Style dengan Efek Denyut */
         .photo-frame {
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             border: 5px solid white;
             overflow: hidden;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 15px auto;
             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             animation: pulse 3s infinite;
         }
@@ -124,26 +134,28 @@
         .letter-box {
             background: #ffffff;
             border: 2px dashed #ff6b81;
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
-            margin-top: 25px;
+            margin-top: 20px;
             cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
+            transition: transform 0.3s;
         }
 
         .letter-box:hover {
-            transform: scale(1.03);
-            background-color: #fff5f6;
+            transform: scale(1.02);
         }
 
         .hidden-message {
             display: none;
             margin-top: 15px;
             line-height: 1.6;
-            color: #555;
+            color: #4a4a4a;
             text-align: left;
             border-top: 1px solid #eee;
             padding-top: 15px;
+            font-size: 0.95rem;
+            max-height: 400px; /* Batasi tinggi maksimal agar tidak bablas ke bawah */
+            overflow-y: auto;  /* Jika teks terlalu panjang, bisa di-scroll di dalam kotak surat */
         }
 
         /* Musik & Tombol Style */
@@ -158,11 +170,12 @@
             margin-top: 20px;
             transition: 0.3s;
             box-shadow: 0 4px 15px rgba(255, 107, 129, 0.2);
+            position: relative;
+            z-index: 3;
         }
 
         .btn-music:hover {
             background-color: #ff4757;
-            transform: translateY(-2px);
         }
     </style>
     <!-- Google Fonts -->
@@ -191,7 +204,7 @@
 
         <!-- Surat Interaktif -->
         <div class="letter-box" onclick="bukaSurat()">
-            <h3 style="color: #ff6b81;">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
+            <h3 style="color: #ff6b81; font-size: 1.1rem;">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
             <div id="pesan-rahasia" class="hidden-message">
                 <p>Haii Zaraaaaaa,</p><br>
                 <p>Selamat ulang tahun yaaa zaraaaaa! dahhh 21 tahunn jugaaa nihhhh. Di hari yang indah ini, akuu cuma mau bilang terima kasih sudah hadir dan mewarnai hari-harikuu. Aku bersyukur banget yangg akhirnyaa sekarangg bisa dipertemukann kembalii sama kamuu zaraaaaa. Kadang sampe sekarang akuu sendiri masih mikir sii, kenapaa bisaa ujung-ujungnyaa bisaa ketemuu samaa kamuu lagii yaaa zaraaaa?padahal duluu kekk akuu ngiranyaa setelahh kitaa dahh gadaaa hubungann apaa-apaa lagii yaaa yaudaaa akuu mikirrnya kitaa nggaa bakalann ketemuu dalam artian bisaa dekett lagii, bahkann sedeket sekarangg. Kadang sampee sekarangg punn akuuu masihh nggaa percayaa, akuuu masihh tidaa ekspek bisaa dekett samaa zaraaa lagii, dann yapp emangg sepertinyaa Tuhan sudah ngasihh akuu lampu hijau (maybe) yangg dimanaa emangg akuu yang ditakdirkan sama kamu zaraaaa (wkwkwkwkwkw akuuu lagii npd bangett nihh) dann yangg pastii tuhan jugaa tauu manaa yang terbaik bagi seorang hambanya hehehehehe dann mungkinn ituu jugaa yangg menjadikann zaraaaa jawabann darii semuaa do'a-do'a kuu yangg selamaa inii udahh akuu panjatkan ke Tuhan, anjayyy wkwkwkwkwkw.</p><br>
@@ -220,18 +233,18 @@
         }
         window.onload = typeWriter;
 
-        // 2. KODE TABURAN HATI (Floating Hearts)
+        // 2. KODE TABURAN HATI (Floating Hearts) - Batasan area agar aman dari goyang
         function createHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
             
-            // Variasi bentuk ikon hati
-            const heartIcons = ["❤️", "💖", "💝", "💕", "🫶🏻"];
+            const heartIcons = ["❤️", "💖", "💝", "💕", "🫶]"];
             heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
             
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 3 + 3 + "s"; // Antara 3-6 detik
-            heart.style.fontSize = Math.random() * 15 + 15 + "px"; // Ukuran acak
+            // Batasi agar hati hanya muncul maksimal 90% lebar layar agar tidak memicu scroll kesamping
+            heart.style.left = Math.random() * 90 + "vw"; 
+            heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+            heart.style.fontSize = Math.random() * 10 + 15 + "px";
             
             document.body.appendChild(heart);
             
@@ -239,10 +252,10 @@
                 heart.remove();
             }, 6000);
         }
-        setInterval(createHeart, 400); // Hati baru muncul setiap 0.4 detik
+        setInterval(createHeart, 500);
 
         // 3. PENGATURAN TANGGAL ULANG TAHUN ZARA
-        const tanggalUltah = new Date("June 07, 2026 18:35:00").getTime();
+        const tanggalUltah = new Date("June 07, 2026 18:50:00").getTime();
 
         const hitungMundur = setInterval(function() {
             const sekarang = new Date().getTime();
@@ -274,7 +287,7 @@
             const pesan = document.getElementById("pesan-rahasia");
 
             if (sekarang < tanggalUltah) {
-                alert("Eitss, mauu bukaa suratnyaa yaaa? belum hari ulang tahunmuu zaraaaaa wkwkwkw! 😜 Suratnya masih dikunci yaa, tunggu sampai tanggal 8 Juni duluu baru bisa dibuka hehehehe! ❤️");
+                alert("Eitss, belum hari ulang tahunmuu zaraaaaa! 😜 Suratnya masih dikunci yaa, tunggu sampai tanggal 5 Juli baru bisa dibuka! ❤️");
             } else {
                 if (pesan.style.display === "block") {
                     pesan.style.display = "none";
