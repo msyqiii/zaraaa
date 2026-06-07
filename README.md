@@ -192,7 +192,241 @@
     <div class="container">
         <!-- Foto Bulat Di Atas -->
         <div class="photo-frame">
-            <img src="https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg" alt="Foto Zara" id="pacar-foto">
+            <img src="<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Fav Person! ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #ffe3e3, #fbc2eb);
+            color: #4a4a4a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #ff6b81;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Countdown Style */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .time-box {
+            background: #ff6b81;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            min-width: 70px;
+            box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        /* Foto Style */
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            overflow: hidden;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Surat/Pesan Style */
+        .letter-box {
+            background: #ffffff;
+            border: 2px dashed #ff6b81;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 25px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .letter-box:hover {
+            transform: scale(1.03);
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 15px;
+            line-height: 1.6;
+            color: #555;
+            text-align: left;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Musik/Tombol Style */
+        .btn-music {
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-music:hover {
+            background-color: #ff4757;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Foto Pacar -->
+        <div class="photo-frame">
+            <img src="https://cdn.phototourl.com/free/2026-06-06-e059cb1f-eb07-4be3-bfdb-230d819c19e2.jpg" alt="Foto Pacar" id="pacar-foto">
+        </div>
+
+        <h1>Happy Birthday My Fav Person! ❤️</h1>
+        <p class="subtitle">Hari spesial untuk orang yang paling spesial dalam hidupku.💕</p>
+
+        <!-- Countdown -->
+        <div class="countdown">
+            <div class="time-box"><span id="days">00</span>Hari</div>
+            <div class="time-box"><span id="hours">00</span>Jam</div>
+            <div class="time-box"><span id="minutes">00</span>Menit</div>
+            <div class="time-box"><span id="seconds">00</span>Detik</div>
+        </div>
+
+        <!-- Surat Interaktif -->
+        <div class="letter-box" onclick="bukaSurat()">
+            <h3 style="color: #ff6b81;" id="judul-surat">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
+            <div id="pesan-rahasia" class="hidden-message">
+                <p>Haii Zaraaaaaa,</p><br>
+                <p>Selamat ulang tahun yaaa zaraaaaa! dahhh 21 tahunn jugaaa nihhhh. Di hari yang indah ini, akuu cuma mau bilang terima kasih sudah hadir dan mewarnai hari-harikuu. Aku bersyukur banget yangg akhirnyaa sekarangg bisa dipertemukann kembalii sama kamuu zaraaaaa. Kadang sampe sekarang akuu sendiri masih mikir sii, kenapaa bisaa ujung-ujungnyaa bisaa ketemuu samaa kamuu lagii yaaa zaraaaa?padahal duluu kekk akuu ngiranyaa setelahh kitaa dahh gadaaa hubungann apaa-apaa lagii yaaa yaudaaa akuu mikirrnya kitaa nggaa bakalann ketemuu dalam artian bisaa dekett lagii, bahkann sedeket sekarangg. Kadang sampee sekarangg punn akuuu masihh nggaa percayaa, akuuu masihh tidaa ekspek bisaa dekett samaa zaraaa lagii, dann yapp emangg sepertinyaa Tuhan sudah ngasihh akuu lampu hijau (maybe) yangg dimanaa emangg akuu yang ditakdirkan sama kamu zaraaaa (wkwkwkwkwkw akuuu lagii npd bangett nihh) dann yangg pastii tuhan jugaa tauu manaa yang terbaik bagi seorang hambanya hehehehehe dann mungkinn ituu jugaa yangg menjadikann zaraaaa jawabann darii semuaa do'a-do'a kuu yangg selamaa inii udahh akuu panjatkan ke Tuhan, anjayyy wkwkwkwkwkw.</p><br>
+                <p>Ohh iyaaaa sampee kelupaann zaraaaa gara-gara keasyikan ngetik, semogaa di usia zaraaaa yang baru ini yang semakin tuaa (wkwkwkwkwkwkw bercandaa, masih mudaa kokkk zaraaaa), zaraaaaa makin bahagiaa, sehat selaluu, dilancarkann rezekinyaa dann semuaa urusannyaa, dikuranginn cueknyaa apalagii kaloo pass badmood atauu marahh hehe (bolehh kokk badmood, marahh ke akuuu tapii akuu jangann dicuekinn yaaa🫶🏻), dan semuaa impiann zaraaaa satu per satu bisa tercapai dann yangg pastii bisaa membanggakann orang tuaa zaraaa nantinyaa, aamiin. Akuu akan selalu berusahaa ada di sini kokk buatt dukung zaraaaa, nemeninn zaraaaa, semuanyaa pokoknyaa buatt zaraaaaa kapann punn dann dimanaa punn zaraaaa membutuhkann kuuu. 💕</p><br>
+                <p>Maaf yaaaa zaraaaa mungkinn akuuu masihh belumm bisaa sepenuhnyaa ngertiin zaraaaa, akuu masihh belajarr jugaa buatt bisaa ngertiin zaraaa sepenuhnyaa. Dan akuuu mintaa maaff jugaa yaaa zaraaaa akuu kadangg masihh nggaa dengerinn zaraaaa, bukann nggaa dengerin zaraaa sii tapii belumm sepenuhnyaa jugaa ngelakuinn apaa yangg zaraaa suruhh kekk nguranginn vape, ngga tidurr malem-malem dann masihh banyakk lagii. </p><br>
+                <p>Terimakasihh banyakk yaaa zaraaaa, dengann hadirnyaa zaraaa di kehidupankuu, zaraaaa dahh banyakk bangett ngasihh perubahann ke kehidupankuu, zaraaaa sudaa bawaa motivasii dann semangatt jugaa buatt akuuu, zaraaa dahh bawaa banyakk kebahagiann jugaa yangg pastinyaa buatt akuuu, dann masihh banyakk lagii yangg lainnyaa. Terima kasihh banyakkk yaaa zaraaaa🫶🏻 </p><br>
+                <p><i>With love,<br>UQII</i></p>
+            </div>
+        </div>
+
+        <!-- Tombol Musik -->
+        <audio id="bg-music" src="https://preliminary-harlequin-i632odai.edgeone.app/ssstik.io_1780779742906.mp3" loop></audio>
+        <button class="btn-music" onclick="putarMusik()">🎵 Putar Musik</button>
+    </div>
+
+    <script>
+        // Pengaturan Tanggal Ulang Tahun Zara
+        const tanggalUltah = new Date("June 7, 2026 21:18:00").getTime();
+
+        const hitungMundur = setInterval(function() {
+            const sekarang = new Date().getTime();
+            const selisih = tanggalUltah - broadband_check(sekarang);
+            
+            function broadband_check(val) { return val; }
+
+            const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+            const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+            const detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+            // Mencegah nilai minus jika waktu sudah lewat
+            if (selisih > 0) {
+                document.getElementById("days").innerHTML = hari < 10 ? "0" + hari : hari;
+                document.getElementById("hours").innerHTML = jam < 10 ? "0" + jam : jam;
+                document.getElementById("minutes").innerHTML = menit < 10 ? "0" + menit : menit;
+                document.getElementById("seconds").innerHTML = detik < 10 ? "0" + detik : detik;
+            } else {
+                clearInterval(hitungMundur);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                document.querySelector(".countdown").innerHTML = "<h2 style='color:#ff6b81; margin: 15px 0;'>🎉 HAPPY BIRTHDAY ZARAAAAA! 🎉</h2>";
+            }
+        }, 1000);
+
+        // FUNGSI BUKA SURAT (Dengan Proteksi Waktu)
+        function bukaSurat() {
+            const sekarang = new Date().getTime();
+            const pesan = document.getElementById("pesan-rahasia");
+
+            // Mengecek apakah waktu sekarang sudah mencapai atau melewati waktu ultah
+            if (sekarang < tanggalUltah) {
+                // Jika BELUM hari-H, kunci suratnya dan beri tahu dia
+                alert("Eitss, belum hari ulang tahunmuu zaraaaaa! 😜 Suratnya masih dikunci yaa, tunggu sampai tanggal 5 Juli baru bisa dibuka! ❤️");
+            } else {
+                // Jika SUDAH hari-H atau lewat, surat bisa dibuka tutup
+                if (pesan.style.display === "block") {
+                    pesan.style.display = "none";
+                } else {
+                    pesan.style.display = "block";
+                }
+            }
+        }
+
+        // FUNGSI PUTAR MUSIK
+        function putarMusik() {
+            const musik = document.getElementById("bg-music");
+            const tombol = document.querySelector(".btn-music");
+            if (musik.paused) {
+                musik.play();
+                tombol.innerHTML = "⏸️ Jeda Musik";
+            } else {
+                musik.pause();
+                tombol.innerHTML = "🎵 Putar Musik";
+            }
+        }
+    </script>
+</body>
+</html>" alt="Foto Zara" id="pacar-foto">
         </div>
 
         <h1>Happy Birthday My Fav Person! ❤️</h1>
