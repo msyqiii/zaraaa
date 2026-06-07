@@ -15,12 +15,17 @@
         html, body {
             width: 100%;
             height: 100%;
-            /* Mengunci layar agar tidak bisa goyang/geser ke kanan-kiri */
             overflow-x: hidden; 
         }
 
         body {
-            background: linear-gradient(to bottom, #ffe3e3, #fbc2eb);
+            /* BACKGROUND GAMBAR YANG SUDAH DIPERBAIKI */
+            background-image: url('https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
             color: #4a4a4a;
             display: flex;
             flex-direction: column;
@@ -30,12 +35,12 @@
             position: relative;
         }
 
-        /* Animasi Hati Berterbangan - Diperbaiki agar tidak merusak lebar layar */
+        /* Animasi Hati & Emot Berterbangan (Banyak & Cepat) */
         .heart {
             position: absolute;
             color: #ff6b81;
             font-size: 20px;
-            animation: floatUp 6s linear infinite;
+            animation: floatUp 5.5s linear infinite;
             opacity: 0.6;
             bottom: -50px;
             z-index: 0;
@@ -56,15 +61,16 @@
         .container {
             max-width: 600px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.8); /* Transparan blur estetik */
             padding: 25px 20px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             text-align: center;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             margin-top: 10px;
             margin-bottom: 30px;
-            z-index: 2; /* Berada di atas efek hati */
+            z-index: 2; 
             position: relative;
         }
 
@@ -76,7 +82,7 @@
 
         p.subtitle {
             font-size: 1rem;
-            color: #777;
+            color: #555;
             margin-bottom: 20px;
             min-height: 45px;
             line-height: 1.4;
@@ -106,7 +112,7 @@
             font-size: 1.3rem;
         }
 
-        /* Foto Style dengan Efek Denyut */
+        /* Foto Bulat Frame */
         .photo-frame {
             width: 160px;
             height: 160px;
@@ -154,8 +160,8 @@
             border-top: 1px solid #eee;
             padding-top: 15px;
             font-size: 0.95rem;
-            max-height: 400px; /* Batasi tinggi maksimal agar tidak bablas ke bawah */
-            overflow-y: auto;  /* Jika teks terlalu panjang, bisa di-scroll di dalam kotak surat */
+            max-height: 350px; 
+            overflow-y: auto;  
         }
 
         /* Musik & Tombol Style */
@@ -184,27 +190,11 @@
 <body>
 
     <div class="container">
-        <!-- Foto Pacar -->
+        <!-- Foto Bulat Di Atas -->
         <div class="photo-frame">
-            <img src="https://cdn.phototourl.com/free/2026-06-06-e059cb1f-eb07-4be3-bfdb-230d819c19e2.jpg" alt="Foto Pacar" id="pacar-foto">
+            <img src="https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg" alt="Foto Zara" id="pacar-foto">
         </div>
-        body {
-            /* Ganti link di bawah ini dengan link foto/gambar background yang kamu mau */
-            background-image: url('[https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1000](https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg)'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            
-            color: #4a4a4a;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            min-height: 100vh;
-            position: relative;
-        }
-        
+
         <h1>Happy Birthday My Fav Person! ❤️</h1>
         
         <!-- Subtitle dengan Teks Otomatis -->
@@ -249,29 +239,28 @@
         }
         window.onload = typeWriter;
 
-        // 2. KODE TABURAN HATI (Floating Hearts) - Batasan area agar aman dari goyang
+        // 2. KODE TABURAN EMOT (Banyak & Cepat)
         function createHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
             
-            const heartIcons = ["❤️", "💖", "💝", "💕", "🫶"];
+            const heartIcons = ["❤️", "💖", "💝", "💕", "🫶🏻", "🌸", "✨"];
             heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
             
-            // Batasi agar hati hanya muncul maksimal 90% lebar layar agar tidak memicu scroll kesamping
             heart.style.left = Math.random() * 90 + "vw"; 
-            heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+            heart.style.animationDuration = Math.random() * 3 + 2.5 + "s";
             heart.style.fontSize = Math.random() * 10 + 15 + "px";
             
             document.body.appendChild(heart);
             
             setTimeout(() => {
                 heart.remove();
-            }, 6000);
+            }, 5500);
         }
-        setInterval(createHeart, 250);
+        setInterval(createHeart, 200); // Muncul cepat setiap 0.2 detik
 
         // 3. PENGATURAN TANGGAL ULANG TAHUN ZARA
-        const tanggalUltah = new Date("June 07, 2026 21:05:00").getTime();
+        const tanggalUltah = new Date("June 07, 2026 21:15:00").getTime();
 
         const hitungMundur = setInterval(function() {
             const sekarang = new Date().getTime();
@@ -303,7 +292,7 @@
             const pesan = document.getElementById("pesan-rahasia");
 
             if (sekarang < tanggalUltah) {
-                alert("Eitss, mauu bukaa suratnyaa yaaa zaraaaa?wkwkwkwkwkw, belumm harii ulangg tahunn kamuu zaraaaaa! 😜 Sabarr duluu yaaa suratnyaa masihh dikuncii, tungguu sampaii tanggal 5 Juli duluu baruu bisa dibuka! ❤️");
+                alert("Eitss, belum hari ulang tahunmuu zaraaaaa! 😜 Suratnya masih dikunci yaa, tunggu sampai tanggal 5 Juli baru bisa dibuka! ❤️");
             } else {
                 if (pesan.style.display === "block") {
                     pesan.style.display = "none";
