@@ -261,7 +261,7 @@
         setInterval(createHeart, 200); // Muncul cepat dan rapat setiap 0.2 detik
 
         // 3. PENGATURAN TANGGAL ULANG TAHUN ZARA
-        const tanggalUltah = new Date("June 07, 2026 22:48:00").getTime();
+        const tanggalUltah = new Date("July 05, 2026 00:00:00").getTime();
 
         const hitungMundur = setInterval(function() {
             const sekarang = new Date().getTime();
