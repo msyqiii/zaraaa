@@ -293,7 +293,7 @@
             const pesan = document.getElementById("pesan-rahasia");
 
             if (sekarang < tanggalUltah) {
-                alert("Eitss, belum hari ulang tahunmuu zaraaaaa! 😜 Suratnya masih dikunci yaa, tunggu sampai tanggal 5 Juli baru bisa dibuka! ❤️");
+                alert("Eitss, mauu bukaa suratnyaa yaaa zaraaaa?wkwkwkwkwkw, belumm harii ulangg tahunn kamuu zaraaaaa! 😜 Sabarr duluu yaaa suratnyaa masihh dikuncii, tungguu sampaii tanggal 5 Juli duluu baruu bisa dibuka! ❤️");
             } else {
                 if (pesan.style.display === "block") {
                     pesan.style.display = "none";
