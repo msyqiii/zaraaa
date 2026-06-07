@@ -238,7 +238,7 @@
             const heart = document.createElement("div");
             heart.classList.add("heart");
             
-            const heartIcons = ["❤️", "💖", "💝", "💕", "🫶]"];
+            const heartIcons = ["❤️", "💖", "💝", "💕", "🫶"];
             heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
             
             // Batasi agar hati hanya muncul maksimal 90% lebar layar agar tidak memicu scroll kesamping
@@ -252,10 +252,10 @@
                 heart.remove();
             }, 6000);
         }
-        setInterval(createHeart, 500);
+        setInterval(createHeart, 250);
 
         // 3. PENGATURAN TANGGAL ULANG TAHUN ZARA
-        const tanggalUltah = new Date("June 07, 2026 18:50:00").getTime();
+        const tanggalUltah = new Date("June 07, 2026 19:05:00").getTime();
 
         const hitungMundur = setInterval(function() {
             const sekarang = new Date().getTime();
