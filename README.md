@@ -20,6 +20,31 @@
             align-items: center;
             padding: 20px;
             min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animasi Hati Berterbangan */
+        .heart {
+            position: absolute;
+            color: #ff6b81;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.7;
+            bottom: -20px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-105vh) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .container {
@@ -32,6 +57,7 @@
             text-align: center;
             backdrop-filter: blur(10px);
             margin-top: 20px;
+            z-index: 1; /* Supaya container di atas efek hati */
         }
 
         h1 {
@@ -44,6 +70,7 @@
             font-size: 1.1rem;
             color: #777;
             margin-bottom: 20px;
+            min-height: 25px;
         }
 
         /* Countdown Style */
@@ -69,7 +96,7 @@
             font-size: 1.5rem;
         }
 
-        /* Foto Style */
+        /* Foto Style dengan Efek Denyut */
         .photo-frame {
             width: 200px;
             height: 200px;
@@ -78,6 +105,13 @@
             overflow: hidden;
             margin: 0 auto 20px auto;
             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); box-shadow: 0 5px 25px rgba(255, 107, 129, 0.4); }
+            100% { transform: scale(1); }
         }
 
         .photo-frame img {
@@ -94,11 +128,12 @@
             border-radius: 15px;
             margin-top: 25px;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
         .letter-box:hover {
             transform: scale(1.03);
+            background-color: #fff5f6;
         }
 
         .hidden-message {
@@ -111,21 +146,23 @@
             padding-top: 15px;
         }
 
-        /* Musik/Tombol Style */
+        /* Musik & Tombol Style */
         .btn-music {
             background-color: #ff6b81;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 12px 25px;
+            border-radius: 25px;
             font-size: 1rem;
             cursor: pointer;
             margin-top: 20px;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 129, 0.2);
         }
 
         .btn-music:hover {
             background-color: #ff4757;
+            transform: translateY(-2px);
         }
     </style>
     <!-- Google Fonts -->
@@ -140,7 +177,9 @@
         </div>
 
         <h1>Happy Birthday My Fav Person! ❤️</h1>
-        <p class="subtitle">Hari spesial untuk orang yang paling spesial dalam hidupku.💕</p>
+        
+        <!-- Subtitle dengan Teks Otomatis -->
+        <p class="subtitle" id="typing-text"></p>
 
         <!-- Countdown -->
         <div class="countdown">
@@ -152,7 +191,7 @@
 
         <!-- Surat Interaktif -->
         <div class="letter-box" onclick="bukaSurat()">
-            <h3 style="color: #ff6b81;" id="judul-surat">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
+            <h3 style="color: #ff6b81;">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
             <div id="pesan-rahasia" class="hidden-message">
                 <p>Haii Zaraaaaaa,</p><br>
                 <p>Selamat ulang tahun yaaa zaraaaaa! dahhh 21 tahunn jugaaa nihhhh. Di hari yang indah ini, akuu cuma mau bilang terima kasih sudah hadir dan mewarnai hari-harikuu. Aku bersyukur banget yangg akhirnyaa sekarangg bisa dipertemukann kembalii sama kamuu zaraaaaa. Kadang sampe sekarang akuu sendiri masih mikir sii, kenapaa bisaa ujung-ujungnyaa bisaa ketemuu samaa kamuu lagii yaaa zaraaaa?padahal duluu kekk akuu ngiranyaa setelahh kitaa dahh gadaaa hubungann apaa-apaa lagii yaaa yaudaaa akuu mikirrnya kitaa nggaa bakalann ketemuu dalam artian bisaa dekett lagii, bahkann sedeket sekarangg. Kadang sampee sekarangg punn akuuu masihh nggaa percayaa, akuuu masihh tidaa ekspek bisaa dekett samaa zaraaa lagii, dann yapp emangg sepertinyaa Tuhan sudah ngasihh akuu lampu hijau (maybe) yangg dimanaa emangg akuu yang ditakdirkan sama kamu zaraaaa (wkwkwkwkwkw akuuu lagii npd bangett nihh) dann yangg pastii tuhan jugaa tauu manaa yang terbaik bagi seorang hambanya hehehehehe dann mungkinn ituu jugaa yangg menjadikann zaraaaa jawabann darii semuaa do'a-do'a kuu yangg selamaa inii udahh akuu panjatkan ke Tuhan, anjayyy wkwkwkwkwkw.</p><br>
@@ -169,21 +208,51 @@
     </div>
 
     <script>
-        // Pengaturan Tanggal Ulang Tahun Zara
-        const tanggalUltah = new Date("June 8, 2026 00:00:00").getTime();
+        // 1. KODE TEKS OTOMATIS (Typewriter)
+        const txt = "Hari spesial untuk orang yang paling spesial dalam hidupku. 💕";
+        let i = 0;
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("typing-text").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, 80);
+            }
+        }
+        window.onload = typeWriter;
+
+        // 2. KODE TABURAN HATI (Floating Hearts)
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            
+            // Variasi bentuk ikon hati
+            const heartIcons = ["❤️", "💖", "💝", "💕", "🫶🏻"];
+            heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+            
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 3 + "s"; // Antara 3-6 detik
+            heart.style.fontSize = Math.random() * 15 + 15 + "px"; // Ukuran acak
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+        setInterval(createHeart, 400); // Hati baru muncul setiap 0.4 detik
+
+        // 3. PENGATURAN TANGGAL ULANG TAHUN ZARA
+        const tanggalUltah = new Date("July 08, 2026 00:00:00").getTime();
 
         const hitungMundur = setInterval(function() {
             const sekarang = new Date().getTime();
-            const selisih = tanggalUltah - broadband_check(sekarang);
-            
-            function broadband_check(val) { return val; }
+            const selisih = tanggalUltah - sekarang;
 
             const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
             const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
             const detik = Math.floor((selisih % (1000 * 60)) / 1000);
 
-            // Mencegah nilai minus jika waktu sudah lewat
             if (selisih > 0) {
                 document.getElementById("days").innerHTML = hari < 10 ? "0" + hari : hari;
                 document.getElementById("hours").innerHTML = jam < 10 ? "0" + jam : jam;
@@ -199,17 +268,14 @@
             }
         }, 1000);
 
-        // FUNGSI BUKA SURAT (Dengan Proteksi Waktu)
+        // 4. FUNGSI BUKA SURAT (Proteksi Waktu)
         function bukaSurat() {
             const sekarang = new Date().getTime();
             const pesan = document.getElementById("pesan-rahasia");
 
-            // Mengecek apakah waktu sekarang sudah mencapai atau melewati waktu ultah
             if (sekarang < tanggalUltah) {
-                // Jika BELUM hari-H, kunci suratnya dan beri tahu dia
-                alert("Eitss, belum hari ulang tahunmuu zaraaaaa! 😜 Suratnya masih dikunci yaa, tunggu sampai tanggal 5 Juli baru bisa dibuka! ❤️");
+                alert("Eitss, mauu bukaa suratnyaa yaaa? belum hari ulang tahunmuu zaraaaaa wkwkwkw! 😜 Suratnya masih dikunci yaa, tunggu sampai tanggal 8 Juni duluu baru bisa dibuka hehehehe! ❤️");
             } else {
-                // Jika SUDAH hari-H atau lewat, surat bisa dibuka tutup
                 if (pesan.style.display === "block") {
                     pesan.style.display = "none";
                 } else {
@@ -218,7 +284,7 @@
             }
         }
 
-        // FUNGSI PUTAR MUSIK
+        // 5. FUNGSI PUTAR MUSIK
         function putarMusik() {
             const musik = document.getElementById("bg-music");
             const tombol = document.querySelector(".btn-music");
