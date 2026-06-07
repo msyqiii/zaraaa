@@ -19,8 +19,8 @@
         }
 
         body {
-            /* PERBAIKAN: Menggunakan double quotes di dalam single quotes agar link berspasi terbaca sempurna sebagai background luar */
-            background-image: url("https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg"); 
+            /* 1. BACKGROUND UTAMA WEBSITE (zaraa 2.jpeg) */
+            background-image: url('https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -61,14 +61,13 @@
         .container {
             max-width: 600px;
             width: 100%;
-            /* Membuat kotak tengah transparan blur estetik seperti kaca agar foto background di belakang tetap kelihatan */
-            background: rgba(255, 255, 255, 0.75); 
+            background: rgba(255, 255, 255, 0.8); /* Transparan blur transparan kaca */
             padding: 25px 20px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             text-align: center;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             margin-top: 10px;
             margin-bottom: 30px;
             z-index: 2; 
@@ -83,11 +82,10 @@
 
         p.subtitle {
             font-size: 1rem;
-            color: #444;
+            color: #555;
             margin-bottom: 20px;
             min-height: 45px;
             line-height: 1.4;
-            font-weight: 600;
         }
 
         /* Countdown Style */
@@ -114,7 +112,7 @@
             font-size: 1.3rem;
         }
 
-        /* Foto Bulat Frame Di Dalam Kotak */
+        /* Foto Bulat Frame */
         .photo-frame {
             width: 160px;
             height: 160px;
@@ -122,13 +120,13 @@
             border: 5px solid white;
             overflow: hidden;
             margin: 0 auto 15px auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             animation: pulse 3s infinite;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.03); box-shadow: 0 5px 25px rgba(255, 107, 129, 0.5); }
+            50% { transform: scale(1.03); box-shadow: 0 5px 25px rgba(255, 107, 129, 0.4); }
             100% { transform: scale(1); }
         }
 
@@ -157,7 +155,7 @@
             display: none;
             margin-top: 15px;
             line-height: 1.6;
-            color: #333;
+            color: #4a4a4a;
             text-align: left;
             border-top: 1px solid #eee;
             padding-top: 15px;
@@ -177,7 +175,7 @@
             cursor: pointer;
             margin-top: 20px;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 129, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 107, 129, 0.2);
             position: relative;
             z-index: 3;
         }
@@ -192,9 +190,9 @@
 <body>
 
     <div class="container">
-        <!-- FOTO BULAT UTAMA: Tetap ada di sini menggunakan foto Zara -->
+        <!-- 2. FOTO UTAMA BULAT DI ATAS (zaraaa.jpeg) -->
         <div class="photo-frame">
-            <img src="https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg" alt="Foto Zara" id="pacar-foto">
+            <img src="https://typical-moccasin-duxvbrc7.edgeone.app/zaraaa.jpeg" alt="Foto Zara" id="pacar-foto">
         </div>
 
         <h1>Happy Birthday My Fav Person! ❤️</h1>
