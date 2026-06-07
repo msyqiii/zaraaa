@@ -19,7 +19,7 @@
         }
 
         body {
-            /* 1. BACKGROUND UTAMA WEBSITE (zaraa 2.jpeg) */
+            /* BACKGROUND UTAMA WEBSITE (zaraa 2.jpeg) */
             background-image: url('https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg'); 
             background-size: cover;
             background-position: center;
@@ -35,33 +35,34 @@
             position: relative;
         }
 
-        /* Animasi Hati & Emot Berterbangan (Banyak & Cepat) */
+        /* Animasi Hati & Emot Berterbangan (SUDAH DITEBALKAN & JELAS) */
         .heart {
             position: absolute;
             color: #ff6b81;
-            font-size: 20px;
+            font-size: 22px; 
             animation: floatUp 5.5s linear infinite;
-            opacity: 0.6;
+            opacity: 1; /* Tebal maksimal (tidak samar) */
             bottom: -50px;
             z-index: 0;
             pointer-events: none;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Bayangan halus agar emot makin menyala */
         }
 
         @keyframes floatUp {
             0% {
                 transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0.7;
+                opacity: 1; /* Muncul dengan ketebalan penuh */
             }
             100% {
                 transform: translateY(-110vh) translateX(30px) rotate(360deg);
-                opacity: 0;
+                opacity: 0; /* Menghilang perlahan hanya saat di atas layar */
             }
         }
 
         .container {
             max-width: 600px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.8); /* Transparan blur transparan kaca */
+            background: rgba(255, 255, 255, 0.8); /* Efek kaca transparan premium */
             padding: 25px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -190,7 +191,7 @@
 <body>
 
     <div class="container">
-        <!-- 2. FOTO UTAMA BULAT DI ATAS (zaraaa.jpeg) -->
+        <!-- FOTO UTAMA BULAT DI ATAS (zaraaa.jpeg) -->
         <div class="photo-frame">
             <img src="https://typical-moccasin-duxvbrc7.edgeone.app/zaraaa.jpeg" alt="Foto Zara" id="pacar-foto">
         </div>
@@ -239,7 +240,7 @@
         }
         window.onload = typeWriter;
 
-        // 2. KODE TABURAN EMOT (Banyak & Cepat)
+        // 2. KODE TABURAN EMOT JELAS (Banyak & Cepat - Opacity 1)
         function createHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
@@ -257,7 +258,7 @@
                 heart.remove();
             }, 5500);
         }
-        setInterval(createHeart, 200); 
+        setInterval(createHeart, 200); // Muncul cepat dan rapat setiap 0.2 detik
 
         // 3. PENGATURAN TANGGAL ULANG TAHUN ZARA
         const tanggalUltah = new Date("July 05, 2026 00:00:00").getTime();
