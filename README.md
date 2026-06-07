@@ -188,7 +188,23 @@
         <div class="photo-frame">
             <img src="https://cdn.phototourl.com/free/2026-06-06-e059cb1f-eb07-4be3-bfdb-230d819c19e2.jpg" alt="Foto Pacar" id="pacar-foto">
         </div>
-
+        body {
+            /* Ganti link di bawah ini dengan link foto/gambar background yang kamu mau */
+            background-image: url('[https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1000](https://hilarious-green-fhq8gdxf.edgeone.app/zaraa%202.jpeg)'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+            color: #4a4a4a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+        
         <h1>Happy Birthday My Fav Person! ❤️</h1>
         
         <!-- Subtitle dengan Teks Otomatis -->
@@ -255,7 +271,7 @@
         setInterval(createHeart, 250);
 
         // 3. PENGATURAN TANGGAL ULANG TAHUN ZARA
-        const tanggalUltah = new Date("June 07, 2026 20:50:00").getTime();
+        const tanggalUltah = new Date("June 07, 2026 21:05:00").getTime();
 
         const hitungMundur = setInterval(function() {
             const sekarang = new Date().getTime();
