@@ -35,34 +35,41 @@
             position: relative;
         }
 
-        /* Animasi Hati & Emot Berterbangan (SUDAH DITEBALKAN & JELAS) */
-        .heart {
-            position: absolute;
-            color: #ff6b81;
-            font-size: 22px; 
+        .heart, .compliment {
+            position: fixed;
             animation: floatUp 5.5s linear infinite;
-            opacity: 1; /* Tebal maksimal (tidak samar) */
-            bottom: -50px;
+            top: 105vh; 
             z-index: 0;
             pointer-events: none;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Bayangan halus agar emot makin menyala */
+            text-shadow: 0 2px 5px rgba(0,0,0,0.15); 
+        }
+        .heart { color: #ff6b81; font-size: 22px; opacity: 1; }
+        .compliment {
+            color: #ffffff;
+            background: #ff6b81;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         @keyframes floatUp {
             0% {
                 transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 1; /* Muncul dengan ketebalan penuh */
+                opacity: 1; 
             }
             100% {
-                transform: translateY(-110vh) translateX(30px) rotate(360deg);
-                opacity: 0; /* Menghilang perlahan hanya saat di atas layar */
+                transform: translateY(-120vh) translateX(30px) rotate(360deg);
+                opacity: 0; 
             }
         }
 
         .container {
             max-width: 600px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.8); /* Efek kaca transparan premium */
+            background: rgba(255, 255, 255, 0.8); 
             padding: 25px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -89,7 +96,6 @@
             line-height: 1.4;
         }
 
-        /* Countdown Style */
         .countdown {
             display: flex;
             justify-content: center;
@@ -113,7 +119,6 @@
             font-size: 1.3rem;
         }
 
-        /* Foto Bulat Frame */
         .photo-frame {
             width: 160px;
             height: 160px;
@@ -121,14 +126,32 @@
             border: 5px solid white;
             overflow: hidden;
             margin: 0 auto 15px auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            animation: pulse 3s infinite;
+            position: relative;
+            z-index: 3;
+            animation: heartBeat 1.2s infinite ease-in-out;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); box-shadow: 0 5px 25px rgba(255, 107, 129, 0.4); }
-            100% { transform: scale(1); }
+        @keyframes heartBeat {
+            0% { 
+                transform: scale(1); 
+                box-shadow: 0 0 10px rgba(255, 107, 129, 0.5), 0 0 20px rgba(255, 107, 129, 0.3); 
+            }
+            25% { 
+                transform: scale(1.06); 
+                box-shadow: 0 0 20px rgba(255, 107, 129, 0.8), 0 0 35px rgba(255, 107, 129, 0.6); 
+            }
+            45% { 
+                transform: scale(1.02); 
+                box-shadow: 0 0 15px rgba(255, 107, 129, 0.6), 0 0 25px rgba(255, 107, 129, 0.4); 
+            }
+            60% { 
+                transform: scale(1.08); 
+                box-shadow: 0 0 25px rgba(255, 107, 129, 0.9), 0 0 45px rgba(255, 107, 129, 0.7); 
+            }
+            100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 10px rgba(255, 107, 129, 0.5), 0 0 20px rgba(255, 107, 129, 0.3); 
+            }
         }
 
         .photo-frame img {
@@ -137,11 +160,10 @@
             object-fit: cover;
         }
 
-        /* Surat/Pesan Style */
         .letter-box {
             background: #ffffff;
             border: 2px dashed #ff6b81;
-            padding: 15px;
+            padding: 20px 15px;
             border-radius: 15px;
             margin-top: 20px;
             cursor: pointer;
@@ -152,6 +174,26 @@
             transform: scale(1.02);
         }
 
+        .balloon-game-area {
+            display: none;
+            justify-content: center;
+            flex-wrap: wrap; 
+            gap: 12px; 
+            margin: 15px auto;
+            padding: 10px;
+            max-width: 95%; 
+            align-items: center;
+        }
+        
+        .balloon { 
+            font-size: 2.2rem; 
+            cursor: pointer; 
+            transition: transform 0.1s; 
+            display: inline-block; 
+            user-select: none; 
+        }
+        .balloon:hover { transform: scale(1.2); }
+
         .hidden-message {
             display: none;
             margin-top: 15px;
@@ -161,11 +203,46 @@
             border-top: 1px solid #eee;
             padding-top: 15px;
             font-size: 0.95rem;
-            max-height: 350px; 
-            overflow-y: auto;  
         }
 
-        /* Musik & Tombol Style */
+        /* SECTION VOUCHER DIGITAL */
+        .voucher-section {
+            display: none; 
+            background: #ffffff; padding: 20px; border-radius: 15px; margin-top: 25px;
+            border: 2px solid #fbc2eb; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .voucher-section h3 { color: #ff6b81; font-size: 1.1rem; margin-bottom: 10px; }
+        .voucher-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        
+        .voucher-card {
+            background: linear-gradient(135deg, #fff5f5, #fff); border: 2px dashed #ff6b81;
+            padding: 12px; border-radius: 10px; text-align: left; position: relative;
+        }
+        .voucher-title { font-weight: bold; color: #ff6b81; font-size: 0.9rem; }
+        .voucher-desc { font-size: 0.8rem; color: #666; margin-top: 2px; padding-right: 80px; }
+        
+        .btn-claim {
+            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+            background: #ff6b81; color: white; border: none; padding: 6px 12px;
+            border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer;
+        }
+        .voucher-card.claimed { background: #f1f2f6; border-color: #ced6e0; }
+        .voucher-card.claimed .voucher-title { color: #a4b0be; }
+        .voucher-card.claimed .btn-claim { background: #ced6e0; color: #ffffff; cursor: default; }
+
+        /* LOVE BUZZER STYLE */
+        .buzzer-section {
+            display: none; 
+            margin-top: 25px; background: #ffffff; padding: 20px; border-radius: 15px;
+            border: 2px solid #ff6b81;
+        }
+        .btn-buzzer {
+            background: radial-gradient(circle, #ff4757, #ff6b81); color: white;
+            border: none; width: 85px; height: 85px; border-radius: 50%; font-size: 1.8rem;
+            cursor: pointer; box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4); display: block; margin: 10px auto;
+        }
+        .btn-buzzer:active { transform: scale(0.9); }
+
         .btn-music {
             background-color: #ff6b81;
             color: white;
@@ -180,28 +257,20 @@
             position: relative;
             z-index: 3;
         }
-
-        .btn-music:hover {
-            background-color: #ff4757;
-        }
+        .btn-music:hover { background-color: #ff4757; }
     </style>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
-        <!-- FOTO UTAMA BULAT DI ATAS (zaraaa.jpeg) -->
         <div class="photo-frame">
             <img src="https://typical-moccasin-duxvbrc7.edgeone.app/zaraaa.jpeg" alt="Foto Zara" id="pacar-foto">
         </div>
 
         <h1>Happy Birthday My Fav Person! ❤️</h1>
-        
-        <!-- Subtitle dengan Teks Otomatis -->
         <p class="subtitle" id="typing-text"></p>
 
-        <!-- Countdown -->
         <div class="countdown">
             <div class="time-box"><span id="days">00</span>Hari</div>
             <div class="time-box"><span id="hours">00</span>Jam</div>
@@ -209,112 +278,159 @@
             <div class="time-box"><span id="seconds">00</span>Detik</div>
         </div>
 
-        <!-- Surat Interaktif -->
-        <div class="letter-box" onclick="bukaSurat()">
-            <h3 style="color: #ff6b81; font-size: 1.1rem;">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
+        <div class="letter-box">
+            <div id="tombol-memicu-game" onclick="mulaiGameAtauProteksi()">
+                <h3 style="color: #ff6b81; font-size: 1.1rem;" id="teks-tombol-surat">✉️ Klik untuk membuka surat dari akuuu🫶🏻...</h3>
+            </div>
+
+            <div id="balloon-area" class="balloon-game-area">
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+                <span class="balloon" onclick="pecahkanBalon(this)">🎈</span>
+            </div>
+
             <div id="pesan-rahasia" class="hidden-message">
                 <p>Haii Zaraaaaaa,</p><br>
-                <p>Selamat ulang tahun yaaa zaraaaaa! dahhh 21 tahunn jugaaa nihhhh. Di hari yang indah ini, akuu cuma mau bilang terima kasih sudah hadir dan mewarnai hari-harikuu. Aku bersyukur banget yangg akhirnyaa sekarangg bisa dipertemukann kembalii sama kamuu zaraaaaa. Kadang sampe sekarang akuu sendiri masih mikir sii, kenapaa bisaa ujung-ujungnyaa bisaa ketemuu samaa kamuu lagii yaaa zaraaaa?padahal duluu kekk akuu ngiranyaa setelahh kitaa dahh gadaaa hubungann apaa-apaa lagii yaaa yaudaaa akuu mikirrnya kitaa nggaa bakalann ketemuu dalam artian bisaa dekett lagii, bahkann sedeket sekarangg. Kadang sampee sekarangg punn akuuu masihh nggaa percayaa, akuuu masihh tidaa ekspek bisaa dekett samaa zaraaa lagii, dann yapp emangg sepertinyaa Tuhan sudah ngasihh akuu lampu hijau (maybe) yangg dimanaa emangg akuu yang ditakdirkan sama kamu zaraaaa (wkwkwkwkwkw akuuu lagii npd bangett nihh) dann yangg pastii tuhan jugaa tauu manaa yang terbaik bagi seorang hambanya hehehehehe dann mungkinn ituu jugaa yangg menjadikann zaraaaa jawabann darii semuaa do'a-do'a kuu yangg selamaa inii udahh akuu panjatkan ke Tuhan, anjayyy wkwkwkwkwkw.</p><br>
-                <p>Ohh iyaaaa sampee kelupaann zaraaaa gara-gara keasyikan ngetik, semogaa di usia zaraaaa yang baru ini yang semakin tuaa (wkwkwkwkwkwkw bercandaa, masih mudaa kokkk zaraaaa), zaraaaaa makin bahagiaa, sehat selaluu, dilancarkann rezekinyaa dann semuaa urusannyaa, dikuranginn cueknyaa apalagii kaloo pass badmood atauu marahh hehe (bolehh kokk badmood, marahh ke akuuu tapii akuu jangann dicuekinn yaaa🫶🏻), dan semuaa impiann zaraaaa satu per satu bisa tercapai dann yangg pastii bisaa membanggakann orang tuaa zaraaa nantinyaa, aamiin. Akuu akan selalu berusahaa ada di sini kokk buatt dukung zaraaaa, nemeninn zaraaaa, semuanyaa pokoknyaa buatt zaraaaaa kapann punn dann dimanaa punn zaraaaa membutuhkann kuuu. 💕</p><br>
-                <p>Maaf yaaaa zaraaaa mungkinn akuuu masihh belumm bisaa sepenuhnyaa ngertiin zaraaaa, akuu masihh belajarr jugaa buatt bisaa ngertiin zaraaa sepenuhnyaa. Dan akuuu mintaa maaff jugaa yaaa zaraaaa akuu kadangg masihh nggaa dengerinn zaraaaa, bukann nggaa dengerin zaraaa sii tapii belumm sepenuhnyaa jugaa ngelakuinn apaa yangg zaraaa suruhh kekk nguranginn vape, ngga tidurr malem-malem dann masihh banyakk lagii. </p><br>
-                <p>Terimakasihh banyakk yaaa zaraaaa, dengann hadirnyaa zaraaa di kehidupankuu, zaraaaa dahh banyakk bangett ngasihh perubahann ke kehidupankuu, zaraaaa sudaa bawaa motivasii dann semangatt jugaa buatt akuuu, zaraaa dahh bawaa banyakk kebahagiann jugaa yangg pastinyaa buatt akuuu, dann masihh banyakk lagii yangg lainnyaa. Terima kasihh banyakkk yaaa zaraaaa🫶🏻 </p><br>
+                <p>Selamat ulang tahun yaaa zaraaaaa! dahhh 21 tahunn jugaaa nihhhh zaraaaaa yeaayyy. Di hari yang indah ini, akuu cuma mau bilang terima kasih sudah hadir dan mewarnai hari-harikuu. Aku bersyukur banget yangg akhirnyaa sekarangg bisa dipertemukann kembalii sama zaraaaaa lagii. Kadang sampe sekarang akuu sendiri masih mikir sii, kenapaa bisaa ujung-ujungnyaa bisaa ketemuu samaa zaraaaa lagii yaaa?padahal duluu kekk akuu ngiranyaa setelahh kitaa dahh gadaaa hubungann apaa-apaa lagii yaaa yaudaaa akuu mikirrnya kitaa nggaa bakalann ketemuu dalam artian bisaa dekett lagii gituu zaraaaa, bahkann sedeket sekarangg inii. Kadang sampee sekarangg punn akuuu masihh nggaa percayaa, akuuu masihh tidaa ekspek bisaa dekett samaa zaraaa lagii, dann yapp emangg sepertinyaa Allah sudah ngasihh akuu lampu hijau (maybe) yangg dimanaa emangg akuu yang ditakdirkan sama kamu zaraaaa (wkwkwkwkwkw akuuu lagii npd bangett nihh) dan begitu pula sebaliknya, dann yangg pastii Allah jugaa tauu manaa yang terbaik bagi seorang hambanya WKWKWKWKW, dann mungkinn ituu jugaa yangg menjadikann zaraaaa jawabann darii semuaa do'a-do'a kuu yangg selamaa inii udahh akuu panjatkan, anjayyy wkwkwkwkwkw.</p><br>
+                <p>Ohh iyaaaa sampee kelupaann zaraaaa gara-gara keasyikan ngetik, semogaa di usia zaraaaa yang baru ini yang semakin tuaa (wkwkwkwkwkwkw bercandaa, masih mudaa kokkk zaraaaa), zaraaaaa makin bahagiaa, sehat selaluu, dilancarkann rezekinyaa dann semuaa urusannyaa, dikuranginn cueknyaa apalagii kaloo pass badmood atauu marahh hehe (bolehh kokk badmood, marahh ke akuuu tapii akuu jangann dicuekinn yaaa🫶🏻), dan semuaa impiann zaraaaa satu per satu bisa tercapai dann yangg pastii bisaa membanggakann orang tuaa zaraaa nantinyaa, aamiin. Akuu akan selalu berusahaa ada di sini kokk buatt dukung zaraaaa, nemeninn zaraaaa, semuanyaa pokoknyaa buatt zaraaaaa kapann punn dann dimanaa punn zaraaaa membutuhkann kuuu. Semogaa sampaii seterusnyaa akuuu bisaa bareng-bareng teruss samaa zaraaaaa, aamiin 💕</p><br>
+                <p>Maaf yaaaa zaraaaa mungkinn akuuu masihh belumm bisaa sepenuhnyaa ngertiin zaraaaa, akuu masihh belajarr jugaa buatt bisaa ngertiin zaraaa sepenuhnyaa. Dan akuuu mintaa maaff jugaa yaaa zaraaaa akuu kadangg masihh nggaa dengerinn zaraaaa, bukann nggaa dengerin zaraaa sii tapii belumm sepenuhnyaa jugaa ngelakuinn apaa yangg zaraaa suruhh kekk nguranginn vape, ngga tidurr malem-malem dann masihh banyakk lagii. Maaf kaloo akuuu masihh banyakk kurangnyaa jugaa yaaa buatt zaraaaa </p><br>
+                <p>Terimakasihh banyakk yaaa zaraaaa, dengann hadirnyaa zaraaa di kehidupankuu, zaraaaa dahh banyakk bangett ngasihh perubahann ke kehidupankuu, zaraaaa sudaa bawaa motivasii dann semangatt jugaa buatt akuuu, zaraaa dahh bawaa banyakk kebahagiann jugaa yangg pastinyaa buatt akuuu, dann masihh banyakk lagii yangg lainnyaa. Terimakasih zaraaaaa sudahh jadii bagiann darii takdirrkuu yangg paling menyenangkan. Terima kasihh banyakkk yaaa zaraaaa🫶🏻 </p><br>
                 <p><i>With love,<br>UQII</i></p>
             </div>
         </div>
 
-        <!-- Tombol Musik -->
+        <div id="voucher-section" class="voucher-section">
+            <h3>🎁 Spesial Voucher Ulang Tahun Buat Zaraaa</h3>
+            <p style="font-size: 0.8rem; color: #666; margin-bottom: 10px;">Silakan klik klaim untuk menyimpan kupon hadiahmu yaa! ✨</p>
+            
+            <div class="voucher-container">
+                <div class="voucher-card" onclick="klaimVoucherLangsung(this, 'Makan Bareng')">
+                    <div class="voucher-title">🎟️ VOUCHER MAKAN BARENG</div>
+                    <div class="voucher-desc">Ditraktir makan sepuasnya bareng Uqii (Berlaku Selamanya).</div>
+                    <button class="btn-claim">Klaim</button>
+                </div>
+                
+                <div class="voucher-card" onclick="klaimVoucherLangsung(this, 'Quality Time')">
+                    <div class="voucher-title">🎟️ VOUCHER QUALITY TIME</div>
+                    <div class="voucher-desc">Klaim untuk meluangkan waktu seharian penuh berdua bareng Uqii tanpa gangguan.</div>
+                    <button class="btn-claim">Klaim</button>
+                </div>
+
+                <div class="voucher-card" onclick="klaimVoucherLangsung(this, 'Surprise Date')">
+                    <div class="voucher-title">🎟️ VOUCHER SURPRISE DATE</div>
+                    <div class="voucher-desc">Uqii yang bakal siapin agenda nge-date rahasia dan spesial buat kamu.</div>
+                    <button class="btn-claim">Klaim</button>
+                </div>
+
+                <div class="voucher-card" onclick="klaimVoucherLangsung(this, 'Jalan-Jalan')">
+                    <div class="voucher-title">🎟️ VOUCHER JALAN-JALAN</div>
+                    <div class="voucher-desc">Bebas request rute jalan-jalan ke mana pun akhir pekan ini bareng Uqii.</div>
+                    <button class="btn-claim">Klaim</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="buzzer-section" class="buzzer-section">
+            <h3 style="color: #ff6b81; font-size: 1.1rem;">🚨 Love Buzzer Interaktif</h3>
+            <p style="font-size: 0.8rem; color:#777;">Pencet tombol hati di bawah kalau kamu lagi kangen Uqii sekarang! 😜</p>
+            <button class="btn-buzzer" onclick="pencetBuzzer()">❤️</button>
+            <p id="buzzer-text" style="font-weight: bold; color: #ff4757; margin-top: 10px; min-height: 20px;"></p>
+        </div>
+
         <audio id="bg-music" src="https://preliminary-harlequin-i632odai.edgeone.app/ssstik.io_1780779742906.mp3" loop></audio>
+        
         <button class="btn-music" onclick="putarMusik()">🎵 Putar Musik</button>
     </div>
 
     <script>
-        // 1. KODE TEKS OTOMATIS (Typewriter)
+        let jumlahBalonPecah = 0; 
+        const totalBalon = 21; 
+
+        // Inisialisasi Audio Context bawaan browser
+        let audioCtx = null;
+        function initAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        // SYNTHESIZER INTERNAL UNTUK SUARA BALON MELETUS (POP!)
+        function bunyikanPopInternal() {
+            initAudioContext();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            let osc = audioCtx.createOscillator();
+            let gain = audioCtx.createGain();
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.type = 'sine';
+            // Frekuensi drop kilat mirip balon pecah
+            osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(10, audioCtx.currentTime + 0.08);
+            
+            gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.08);
+        }
+
+        // SYNTHESIZER INTERNAL UNTUK SUARA BUZZER MAINAN LUCIU (DIT, DIT!)
+        function bunyikanBuzzerInternal() {
+            initAudioContext();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            let osc = audioCtx.createOscillator();
+            let gain = audioCtx.createGain();
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.type = 'triangle'; // Suara retro imut mirip mainan gameboy
+            osc.frequency.setValueAtTime(180, audioCtx.currentTime);
+            osc.frequency.linearRampToValueAtTime(320, audioCtx.currentTime + 0.15);
+            
+            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.15);
+        }
+
+        const daftarAlasan = ["Cantiknyaa Uqii❤️", "Gemesin!❤️", "Jawaban Doaku❤️", "Punyaa Uqii ❤️", "Penyemangatku❤️", "Sayangnya Uqii❤️"];
+        let mulaiEfekAlasan = false;
+
         const txt = "Hari spesial untuk orang yang paling spesial dalam hidupku. 💕";
         let i = 0;
         function typeWriter() {
-            if (i < txt.length) {
-                document.getElementById("typing-text").innerHTML += txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, 80);
-            }
+            if (i < txt.length) { document.getElementById("typing-text").innerHTML += txt.charAt(i); i++; setTimeout(typeWriter, 80); }
         }
         window.onload = typeWriter;
 
-        // 2. KODE TABURAN EMOT JELAS (Banyak & Cepat - Opacity 1)
-        function createHeart() {
+        function createElements() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
-            
             const heartIcons = ["❤️", "💖", "💝", "💕", "🫶🏻", "🌸", "✨"];
             heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-            
-            heart.style.left = Math.random() * 90 + "vw"; 
-            heart.style.animationDuration = Math.random() * 3 + 2.5 + "s";
-            heart.style.fontSize = Math.random() * 10 + 15 + "px";
-            
-            document.body.appendChild(heart);
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 5500);
-        }
-        setInterval(createHeart, 200); // Muncul cepat dan rapat setiap 0.2 detik
-
-        // 3. PENGATURAN TANGGAL ULANG TAHUN ZARA
-        const tanggalUltah = new Date("July 05, 2026 00:00:00").getTime();
-
-        const hitungMundur = setInterval(function() {
-            const sekarang = new Date().getTime();
-            const selisih = tanggalUltah - sekarang;
-
-            const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-            const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
-            const detik = Math.floor((selisih % (1000 * 60)) / 1000);
-
-            if (selisih > 0) {
-                document.getElementById("days").innerHTML = hari < 10 ? "0" + hari : hari;
-                document.getElementById("hours").innerHTML = jam < 10 ? "0" + jam : jam;
-                document.getElementById("minutes").innerHTML = menit < 10 ? "0" + menit : menit;
-                document.getElementById("seconds").innerHTML = detik < 10 ? "0" + detik : detik;
-            } else {
-                clearInterval(hitungMundur);
-                document.getElementById("days").innerHTML = "00";
-                document.getElementById("hours").innerHTML = "00";
-                document.getElementById("minutes").innerHTML = "00";
-                document.getElementById("seconds").innerHTML = "00";
-                document.querySelector(".countdown").innerHTML = "<h2 style='color:#ff6b81; margin: 15px 0;'>🎉 HAPPY BIRTHDAY ZARAAAAA! 🎉</h2>";
-            }
-        }, 1000);
-
-        // 4. FUNGSI BUKA SURAT (Proteksi Waktu)
-        function bukaSurat() {
-            const sekarang = new Date().getTime();
-            const pesan = document.getElementById("pesan-rahasia");
-
-            if (sekarang < tanggalUltah) {
-                alert("Eitss, mauu bukaa suratnyaa yaaa zaraaaa?wkwkwkwkwkw, belumm saatnyaa zaraaaaa! 😜 Sabarr duluu yaaa suratnyaa masihh dikuncii, tungguu sampaii nantii malamm tanggal 5 Juli baruu bisa dibukaa!hehehehehe 🤞🏻❤️");
-            } else {
-                if (pesan.style.display === "block") {
-                    pesan.style.display = "none";
-                } else {
-                    pesan.style.display = "block";
-                }
-            }
-        }
-
-        // 5. FUNGSI PUTAR MUSIK
-        function putarMusik() {
-            const musik = document.getElementById("bg-music");
-            const tombol = document.querySelector(".btn-music");
-            if (musik.paused) {
-                musik.play();
-                tombol.innerHTML = "⏸️ Jeda Musik";
-            } else {
-                musik.pause();
-                tombol.innerHTML = "🎵 Putar Musik";
-            }
-        }
-    </script>
-</body>
-</html>
+            heart.style.left = Math.random() * 88 + "vw"; 
+            heart.style.animationDuration = Math.random() 
